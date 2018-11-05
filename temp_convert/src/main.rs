@@ -14,14 +14,9 @@ fn main() {
         ConvertMethod::CelsiusToFahrenheit => input_temp * 1.8 + 32.0
     };
 
-    let input_units = match convert_method {
-        ConvertMethod::FahrenheitToCelsius => "°F",
-        ConvertMethod::CelsiusToFahrenheit => "°C"
-    };
-
-    let output_units = match convert_method {
-        ConvertMethod::FahrenheitToCelsius => "°C",
-        ConvertMethod::CelsiusToFahrenheit => "°F"
+    let (input_units, output_units) = match convert_method {
+        ConvertMethod::FahrenheitToCelsius => ("°F", "°C"),
+        ConvertMethod::CelsiusToFahrenheit => ("°C", "°F")
     };
 
     println!( "{}{} = {}{}", input_temp, input_units, output_temp, output_units );
