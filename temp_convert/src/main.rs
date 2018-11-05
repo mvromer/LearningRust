@@ -9,14 +9,10 @@ fn main() {
     println!( "Temperature Converter" );
     let convert_method = get_convert_method();
     let input_temp = get_input_temperature( &convert_method );
-    let output_temp = match convert_method {
-        ConvertMethod::FahrenheitToCelsius => (input_temp - 32.0) / 1.8,
-        ConvertMethod::CelsiusToFahrenheit => input_temp * 1.8 + 32.0
-    };
 
-    let (input_units, output_units) = match convert_method {
-        ConvertMethod::FahrenheitToCelsius => ("°F", "°C"),
-        ConvertMethod::CelsiusToFahrenheit => ("°C", "°F")
+    let (output_temp, input_units, output_units) = match convert_method {
+        ConvertMethod::FahrenheitToCelsius => ((input_temp - 32.0) / 1.8, "°F", "°C"),
+        ConvertMethod::CelsiusToFahrenheit => (input_temp * 1.8 + 32.0, "°C", "°F")
     };
 
     println!( "{}{} = {}{}", input_temp, input_units, output_temp, output_units );
